@@ -1,0 +1,5 @@
+# Go Runtime
+The Go Runtime is in charge of running and administering concurrency in our Go Programs. The runtime sits between the Go Program and the Operating System and is in charge of the administration of our key concurrency mechanisms, which are go routines and channels. The Go Runtime is like a middle layer that manages Go Routines on OS threads and maps channel communications to system calls. See Go-runtime.png
+
+# Go Routines
+One of the pillars of concurrency in Go is the Goroutine. Goroutines are independently executing functions, which run on a set of threads. They are sometimes referred to as lightweight threads, but they are in fact a level of abstraction on top of threads. The GO RUNTIME schedules Goroutines and runs them in an optimal way on top of threads. The number of Goroutines usually outnumbers the threads by orders of magnitude. The Goruntime chooses when the Goroutines are run.

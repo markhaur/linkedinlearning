@@ -1,0 +1,54 @@
+Mongo DB Atlas, a comprehensive Developer Data Platform. At its core is Atlas Database or Database as a service. This means while using Atlas, we don't have to manage MongoDB ourself, instead the Atlas will manage hte database itself and handle all of the lifecycle details behind the scene.
+
+When using Atlas, your database deployments have built-in replication, or what MongoDB refers to as ReplicaSet. This means that your data is stored on more than one server, which is a core tenet of MongoDB. This ensures both data redundancy and high availability.
+
+In Atlas, there are two types of database deployments. 1. Serverless, 2. Dedicated Clusters
+
+Serverless instances scales on demand and only charges you for the resources that you use. It is a great option for applications with highly variable or sparse workloads over time or if you just want to use serverless architecture in general.
+
+A cluster is several MongoDB servers working together. There are two cluster options, 1. Shared, 2. Dedicated
+# Shared clusters are smaller and include a free tier option, which is a great way to started with Atlas. It has over 100,000 new deployments per month.
+# Dedicated clusters are larger dedicated resources and can be customized to your specific needs. There are options for both low and high traffic applications that have cluster scaling enabled by default, as well as enhanced security features. This is the preferred choice for production workloads.
+
+When deploying your cluster on Atlas, you can choose from a number of cloud providers, including AWS, Google Cloud, and Microsoft Azure in over 100 Geographic regions.
+You can deploy globally across multiple regions or even multiple clouds. As your needs change, so can your cluster. You always have the option to change your scaling tier, region or cloud provider and Atlas will make these changes for you without any downtime.
+
+Atlas includes operational insights and backups with point-in-time restore. It also has capabilities useful for later stages of the lifecycle, like build-in data tiering with online archive. You can manage everything from Atlas CLI or the administration API. 
+
+MongoDB Atlas is more than just a database as a service. It's a comprehensive Developer Data Platform. Atlas search enables you to build rich search experiences on top of your data in the cloud. There's no need for a separate search engine.
+
+Atlas Device Sync allows you to keep data in sync between the cloud and mobile or other edge devices.
+Atlas Data Lake lets you automatically extract data from your Atlas databases to your own low cost, fully managed data lake environment.
+Atlas Data Federation allows you to seamlessly query, transform, aggregate, and write data from Atlas databases, Atlas Data Lakes or your own cloud object storage environments.
+Atlas Charts is a built-in data visualization tool. It allows you to easily create, share, and embed rich dashboards build from your own data in the cloud.
+Atlas App Services offers a set of capabilities that allow you to build faster. It includes a data API, which enables you to read and write data in Atlas with standard HTTPS requests. It also includes a GraphQL API, functions, and triggers to enable you to easily create applications with event-driven architecture.
+
+
+# MongoDB Document Model
+MmongoDB stores data in structures knowns as Documents. That's why it's classified as a document database.
+ 
+How MongoDB stores our data? The mongodb database structures data in documents, which are similar to JSON objects. While documents are displayed in JSON format, they're stored in BSON format in database. BSON is short for binary JSON is an extension of JSON providing additional features that mongodb can leverage.
+
+BSON also add support for additional data types unavailable in standard JSON. Because mongodb stores data in BSON, the database can support a huge range of datatypes including all the JSON data types such as strings, object, array, boolean and null as well as dates, different types of numbers, object IDs, and more.
+
+ObjectID is a special data type used in MongoDB to create unique identifiers.In the database, every document requires an ID field that acts as a primary key. If an inserted document doesn't include the ID field, mongodb will automatically add it, and generate an object ID value for it. 
+
+MongoDB Flexible Schema Model? By default mongodb supports flexible schema model and polymorphic data. This allows us to store documents with different structures in the same collection together. Documents can contain different fields and fields may contain different data types from one document to the next. This is unlike relational databases in which it's necessary to declare a table schema before you begin inserting data. MongoDB flexible schema enables us to iterate quickly and evolve as our requirements change. 
+
+If we want to have more control over the structure and content of our database, we can add optional schema validation rules to set constraints on the structure of documents in the collection.
+
+# How to connect to MongoDB?
+MongoDB Connection String: The mongodb connection string allows us to connect to our cluster and work with our data. It describes a host that we'll be using and the options for connecting to a mongodb database.
+MongoDB provides two formats for connection strings. i) Standard Format ii) DNS seed list format.
+
+The standard format is used to connect to standalone clusters, replica sets, or sharded clusters.
+The DNS seed list format was released in MongoDB 3.6. It allows us to provide a DNS server list to our connection stream. This gives us a lot more flexibility with our deployment and the ability to change servers in our rotation without reconfiguring any of our clients.
+
+Connection string example:
+mongodb+srv://admin:<password>@cluster0.ypht2gs.mongodb.net/?retryWrites=true&w=majority
+
+It begins with a required prefix, "mongodb", that identifies it as a mongodb connection string.
+The "+srv" addition automatically sets the TLS security option to true and tells mongodb to use the DNS seed list.
+There's "<username>:<password>" that are created for the database.
+Next part is the host and optional port part "cluster0.ypht2gs.mongodb.net". If the port number is not specified, mongodb will default to port 27017.
+The final part of the connection string contains any options that we want to include, such as the connection timeout, TLS and SSL, connection pooling, and read and write concerns. In the above connection string "retryWrites=true&w=majority", retryWrites are set to true which tells mongodb drivers to automatically retry when certain types of write operations fail.
