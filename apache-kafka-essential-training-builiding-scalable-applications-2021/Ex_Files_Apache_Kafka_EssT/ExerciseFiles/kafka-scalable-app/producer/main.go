@@ -5,16 +5,15 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"time"
 
 	"github.com/segmentio/kafka-go"
 )
 
 const (
 	topic       = "kafka.learning.orders"
-	broker1Addr = "192.168.27.129:9092"
-	broker2Addr = "192.168.27.129:9093"
-	broker3Addr = "192.168.27.129:9094"
+	broker1Addr = "localhost:9092"
+	broker2Addr = "localhost:9093"
+	broker3Addr = "localhost:9094"
 )
 
 func main() {
@@ -43,6 +42,6 @@ func main() {
 		i++
 
 		// sleep for a second
-		time.Sleep(time.Second)
+		// time.Sleep(time.Second)
 	}
 }
