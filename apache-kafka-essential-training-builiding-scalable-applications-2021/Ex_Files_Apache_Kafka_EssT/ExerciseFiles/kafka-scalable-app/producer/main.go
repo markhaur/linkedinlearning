@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/segmentio/kafka-go"
 )
@@ -26,7 +27,7 @@ func main() {
 		Topic:   topic,
 	})
 
-	for i <= 20 {
+	for i <= 200 {
 		// each kafka message has a key and value. The key is used
 		// to decide which partition (and consequently, which broker)
 		// the message gets published on
@@ -42,6 +43,6 @@ func main() {
 		i++
 
 		// sleep for a second
-		// time.Sleep(time.Second)
+		time.Sleep(time.Second * 2)
 	}
 }
