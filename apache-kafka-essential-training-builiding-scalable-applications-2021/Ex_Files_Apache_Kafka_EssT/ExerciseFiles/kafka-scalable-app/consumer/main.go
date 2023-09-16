@@ -23,7 +23,7 @@ func main() {
 		GroupID: "kafka-go-consumer",
 	})
 
-	for i := 0; i <= 20; i++ {
+	for i := 0; i <= 200; i++ {
 		msg, err := reader.ReadMessage(ctx)
 		if err != nil {
 			fmt.Printf("error while reading message: %v\n", err)
